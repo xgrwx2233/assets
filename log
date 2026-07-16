@@ -1,1 +1,24 @@
 
+已按参考图精修 intro 首屏，重点修复气泡与宠物之间的大空洞。
+
+- 宠物舞台从过高的 `960rpx` 收至 `730rpx`，宠物改为全宽、更靠近气泡与花丛；按钮上提并保持在前景花草上方。
+- intro 使用新的鲜艳花园背景与透明花草前景，花草层可自然遮住宠物脚部。
+- 进度条更短、更粗，三个节点更清晰；气泡与按钮保持儿童游戏视觉。
+- 保持 Header 胶囊安全区逻辑、其他答题状态、业务状态机、Sprite/Spine 和后端逻辑不变。
+
+涉及文件：
+
+- [index.wxss](/Users/huangguang/Downloads/ClassPetGrowthParkDesktop/miniprogram/packages/parent/pages/questions/index.wxss:103)
+- [index.wxml](/Users/huangguang/Downloads/ClassPetGrowthParkDesktop/miniprogram/packages/parent/pages/questions/index.wxml:34)
+- [qa-theme.js](/Users/huangguang/Downloads/ClassPetGrowthParkDesktop/miniprogram/packages/parent/pages/questions/qa-theme.js:49)
+- [qa_bg_intro_vivid.webp](/Users/huangguang/Downloads/ClassPetGrowthParkDesktop/miniprogram/assets/pet-qa/bg/qa_bg_intro_vivid.webp)
+- [qa_fg_intro_flowers.webp](/Users/huangguang/Downloads/ClassPetGrowthParkDesktop/miniprogram/assets/pet-qa/foreground/qa_fg_intro_flowers.webp)
+
+验证：
+
+- `npm run test:skills` 通过。
+- `npm run build` 通过。
+- `git diff --check` 通过。
+- `npm run test:miniprogram` 仍被既有 V3 Sprite 严格门禁阻断：`002_1 body must not touch a Sprite frame edge`；本轮未修改或放宽该门禁。
+
+请在微信开发者工具刷新 intro 页确认实际视觉；本轮只改 intro，未改 question、feedback、summary、complete。
